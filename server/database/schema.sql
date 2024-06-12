@@ -17,5 +17,5 @@ CREATE TABLE person(
   lastname VARCHAR(50) NOT NULL,
   pseudo VARCHAR(15) NOT NULL,
   password VARCHAR(50) NOT NULL,
-  desc TEXT NULL
+  bio TEXT NULL
 );
