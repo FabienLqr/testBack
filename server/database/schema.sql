@@ -10,3 +10,12 @@ create table item (
   user_id int unsigned not null,
   foreign key(user_id) references user(id)
 );
+
+CREATE TABLE person(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  pseudo VARCHAR(15) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  desc TEXT NULL
+);
