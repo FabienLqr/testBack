@@ -54,7 +54,7 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-// app.use(express.json());
+app.use(express.json());
 // app.use(express.urlencoded());
 // app.use(express.text());
 // app.use(express.raw());
@@ -88,6 +88,9 @@ app.use(
 const apiRouter = require("./routers/api/router");
 
 // Mount the API router under the "/api" endpoint
+app.get("/", (req,res) => {
+  res.send("home");
+})
 app.use("/api", apiRouter);
 
 /* ************************************************************************* */
