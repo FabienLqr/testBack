@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import Users from "../components/Users";
 import Connexion from "../components/Connexion";
@@ -17,7 +16,6 @@ function Home() {
     setInsc(true);
   }
 
-  console.info(useLoaderData());
 
   return (
     <>

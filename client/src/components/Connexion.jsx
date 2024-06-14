@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Connexion() {
@@ -23,6 +24,7 @@ function Connexion() {
       .catch(() => console.error(e.message));
     setPassword("");
     setPseudo("");
+    <Link to="/:id" />;
   };
 
   return (
