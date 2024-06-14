@@ -2,8 +2,6 @@ import { useLoaderData } from "react-router-dom";
 
 function Users() {
   const persons = useLoaderData();
-  console.info(persons);
-
   return (
     <p>
       {persons.map((user) => (

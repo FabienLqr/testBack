@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Connexion() {
+  const navigate = useNavigate();
+
   const [pseudo, setPseudo] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,17 +16,20 @@ function Connexion() {
     setPassword(e.target.value);
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3310/api/person", {
+    try {
+      const response = await axios.post("http://localhost:3310/api/person/login", {
         pseudo,
         password,
-      })
-      .catch(() => console.error(e.message));
-    setPassword("");
-    setPseudo("");
-    <Link to="/:id" />;
+      });
+      const user = response.data;
+      setPassword("");
+      setPseudo("");
+      navigate(`/${user.id}`);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
