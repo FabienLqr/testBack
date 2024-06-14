@@ -54,6 +54,19 @@ const add = async (req, res, next) => {
   }
 };
 
+const login = async (req, res, next) => {
+  const log = req.body;
+  try {
+    const user = await tables.person.readLogin(log.pseudo, log.password);
+    if(user === undefined){
+      res.status(404);
+    }
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+}
+
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
 
@@ -64,4 +77,5 @@ module.exports = {
   // edit,
   add,
   // destroy,
+  login
 };

@@ -41,6 +41,17 @@ class personRepository extends AbstractRepository {
     return rows;
   }
 
+  async readLogin(pseudo, password) { // readOne
+    // Execute the SQL SELECT query to retrieve a specific person by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where pseudo = ? and password = ?`,
+      [pseudo, password]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows[0];
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
